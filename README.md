@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Code Skribbl: Code Smells & Design Patterns
 
-## Getting Started
+Un juego educativo tipo Skribbl.io pero enfocado en code smells y patrones de diseño para programadores.
 
-First, run the development server:
+## Descripción
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+En este juego, los jugadores deben adivinar qué code smell o patrón de diseño se muestra en un fragmento de código. Un jugador actúa como "dibujante" que explica el código sin mencionar el nombre específico del concepto, mientras los demás intentan adivinar.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Características
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Juego multijugador en tiempo real
+- Ejemplos reales de código con code smells y patrones de diseño
+- Sistema de puntuación y clasificaciones
+- Interfaz intuitiva y moderna
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tecnologías utilizadas
 
-## Learn More
+- Next.js 15
+- React 19
+- CSS personalizado (sin dependencias de Tailwind)
 
-To learn more about Next.js, take a look at the following resources:
+## Cómo jugar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Entra en la sala de espera e ingresa tu nombre
+2. Espera a que otros jugadores se unan o invítalos compartiendo el enlace
+3. En cada ronda, un jugador verá el nombre del code smell o patrón de diseño y deberá explicarlo
+4. Los demás jugadores intentan adivinar de qué concepto se trata
+5. ¡El primer jugador en adivinar gana puntos!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contribuir
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+¡Las contribuciones son bienvenidas! Si quieres añadir más ejemplos de code smells o patrones de diseño, mejoras en la interfaz o nuevas funcionalidades, no dudes en hacer un pull request.
