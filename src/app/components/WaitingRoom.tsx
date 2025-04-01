@@ -58,20 +58,14 @@ const WaitingRoom: React.FC = () => {
           
           <div className="flex flex-col gap-3 items-center">
             <p className="text-slate-300">
-              {gameState.players.length < 2 
-                ? 'Se necesitan al menos 2 jugadores para comenzar.' 
-                : 'Listo para empezar!'}
+              El juego se iniciará automáticamente. 
+              Si hay más personas, esperarán a que termine la ronda actual.
             </p>
             <button
               onClick={startGame}
-              disabled={gameState.players.length < 2}
-              className={`px-6 py-3 rounded-lg font-bold text-lg ${
-                gameState.players.length < 2
-                  ? 'bg-slate-600 cursor-not-allowed'
-                  : 'bg-green-600 hover:bg-green-700'
-              }`}
+              className="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-bold text-lg"
             >
-              Comenzar juego
+              Reiniciar juego
             </button>
           </div>
         </>
@@ -80,11 +74,11 @@ const WaitingRoom: React.FC = () => {
       <div className="mt-6 p-4 bg-slate-700 rounded w-full max-w-lg">
         <h3 className="text-lg font-semibold mb-2">¿Cómo jugar?</h3>
         <ol className="list-decimal list-inside space-y-2 text-slate-300">
-          <li>En cada ronda, un jugador verá un ejemplo de código con un code smell o patrón de diseño.</li>
-          <li>Ese jugador debe explicar o dar pistas sobre qué concepto representa, sin usar el nombre exacto.</li>
-          <li>Los demás jugadores intentan adivinar el término correcto.</li>
+          <li>En cada ronda, verás un ejemplo de código con un code smell o patrón de diseño.</li>
+          <li>Necesitas identificar qué concepto representa el código mostrado.</li>
+          <li>Puedes jugar solo o con amigos. Si hay más jugadores, uno explica y los demás adivinan.</li>
           <li>El primero en adivinar gana 10 puntos, y el explicador gana 5 puntos.</li>
-          <li>¡Gana quien más puntos acumule al final!</li>
+          <li>¡Gana quien más puntos acumule al final de 5 rondas!</li>
         </ol>
       </div>
     </div>

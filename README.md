@@ -1,32 +1,76 @@
 # Code Skribbl: Code Smells & Design Patterns
 
-Un juego educativo tipo Skribbl.io pero enfocado en code smells y patrones de diseño para programadores.
+Un juego educativo tipo Skribbl.io enfocado en code smells y patrones de diseño para programadores. Aprende mientras juegas identificando problemas comunes en el código y soluciones de diseño.
 
-## Descripción
+![Code Skribbl](https://via.placeholder.com/800x400.png?text=Code+Skribbl+Game)
 
-En este juego, los jugadores deben adivinar qué code smell o patrón de diseño se muestra en un fragmento de código. Un jugador actúa como "dibujante" que explica el código sin mencionar el nombre específico del concepto, mientras los demás intentan adivinar.
+## 🎮 Características
 
-## Características
+- **Modo individual o multijugador**: Juega solo o con otros desarrolladores
+- **Ejemplos reales de código**: Fragmentos que ilustran code smells y patrones de diseño
+- **Interfaz intuitiva**: Diseño limpio y moderno
+- **Aprendizaje divertido**: Mejora tus habilidades de programación mientras compites
 
-- Juego multijugador en tiempo real
-- Ejemplos reales de código con code smells y patrones de diseño
-- Sistema de puntuación y clasificaciones
-- Interfaz intuitiva y moderna
+## 🚀 Demo
 
-## Tecnologías utilizadas
+Próximamente tendremos una versión demo disponible. Por ahora, puedes clonar el repositorio y ejecutarlo localmente.
 
-- Next.js 15
-- React 19
-- CSS personalizado (sin dependencias de Tailwind)
+## 📋 Requisitos
 
-## Cómo jugar
+- Node.js (v18 o superior)
+- npm o yarn
 
-1. Entra en la sala de espera e ingresa tu nombre
-2. Espera a que otros jugadores se unan o invítalos compartiendo el enlace
-3. En cada ronda, un jugador verá el nombre del code smell o patrón de diseño y deberá explicarlo
-4. Los demás jugadores intentan adivinar de qué concepto se trata
-5. ¡El primer jugador en adivinar gana puntos!
+## 🛠️ Instalación
 
-## Contribuir
+```bash
+# Clona el repositorio
+git clone https://github.com/icastanedah/quiz-game.git
+cd quiz-game
 
-¡Las contribuciones son bienvenidas! Si quieres añadir más ejemplos de code smells o patrones de diseño, mejoras en la interfaz o nuevas funcionalidades, no dudes en hacer un pull request.
+# Instala las dependencias
+npm install
+
+# Inicia el servidor de desarrollo
+npm run dev
+```
+
+Luego abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+
+## 📖 Cómo jugar
+
+1. **Ingresa tu nombre** para unirte al juego
+2. **Estudia el código** que aparece en pantalla
+3. **Identifica** qué code smell o patrón de diseño representa
+4. **Gana puntos** por respuestas correctas
+5. ¡Comparte con amigos para competir!
+
+## 🧩 Ejemplos incluidos
+
+### Code Smells:
+- Código duplicado
+- Método largo
+- Clase Dios
+- Y más...
+
+### Patrones de Diseño:
+- Singleton
+- Observer
+- Factory Method
+- Y más...
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para más detalles sobre cómo contribuir.
+
+### Añadir nuevos ejemplos
+
+Puedes agregar nuevos ejemplos de code smells o patrones de diseño para enriquecer el juego.
+
+## 📜 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 🙏 Agradecimientos
+
+- A todos los contribuidores y jugadores
+- A la comunidad de desarrollo por su continuo apoyo

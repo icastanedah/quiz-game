@@ -87,7 +87,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       id: `player-${Date.now()}`,
       name: playerName,
       score: 0,
-      isDrawing: false,
+      isDrawing: true, // El primer jugador siempre será el que explica
     };
     
     setGameState(prev => ({
@@ -96,27 +96,31 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }));
     
     setCurrentUser(newPlayer);
+    
+    // Iniciar el juego automáticamente después de unirse
+    setTimeout(() => {
+      startGameWithPlayers([newPlayer]);
+    }, 500);
   };
   
-  const startGame = () => {
-    if (gameState.players.length < 2) {
-      sendMessage('Se necesitan al menos 2 jugadores para comenzar', 'Sistema');
-      return;
-    }
+  // Nueva función para iniciar el juego con un conjunto específico de jugadores
+  const startGameWithPlayers = (players: Player[]) => {
+    // Asegurarse de que al menos el primer jugador sea el que explica
+    const gamePlayers = players.map((player, index) => ({
+      ...player,
+      isDrawing: index === 0
+    }));
     
-    const shuffledPlayers = [...gameState.players]
-      .sort(() => Math.random() - 0.5);
+    const firstPlayer = gamePlayers[0];
     
-    const firstPlayer = shuffledPlayers[0];
-    firstPlayer.isDrawing = true;
-    
+    // Seleccionar ejemplos aleatorios para el juego
     const shuffledExamples = [...codeExamples]
       .sort(() => Math.random() - 0.5)
       .slice(0, gameState.totalRounds);
     
     setGameState(prev => ({
       ...prev,
-      players: shuffledPlayers,
+      players: gamePlayers,
       currentPlayer: firstPlayer,
       currentExample: shuffledExamples[0],
       status: 'playing',
@@ -125,6 +129,19 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }));
     
     sendMessage(`¡El juego ha comenzado! ${firstPlayer.name} está explicando el código.`, 'Sistema');
+  };
+  
+  const startGame = () => {
+    // Ahora permitimos comenzar el juego con cualquier número de jugadores
+    const shuffledPlayers = [...gameState.players]
+      .sort(() => Math.random() - 0.5);
+    
+    if (shuffledPlayers.length === 0) {
+      sendMessage('No hay jugadores para comenzar el juego', 'Sistema');
+      return;
+    }
+    
+    startGameWithPlayers(shuffledPlayers);
   };
   
   const endRound = () => {
@@ -136,7 +153,11 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setTimeout(() => {
       // Seleccionar siguiente jugador y ejemplo
       const currentPlayerIndex = gameState.players.findIndex(p => p.isDrawing);
-      const nextPlayerIndex = (currentPlayerIndex + 1) % gameState.players.length;
+      
+      // Si solo hay un jugador, ese jugador siempre explica
+      const nextPlayerIndex = gameState.players.length > 1 
+        ? (currentPlayerIndex + 1) % gameState.players.length 
+        : 0;
       
       const updatedPlayers = gameState.players.map((player, index) => ({
         ...player,
@@ -157,7 +178,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         // Siguiente ronda
         const nextExample = codeExamples.find(ex => 
           ex.id === String(nextRound)
-        ) || codeExamples[0];
+        ) || codeExamples[Math.floor(Math.random() * codeExamples.length)];
         
         setGameState(prev => ({
           ...prev,
