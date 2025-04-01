@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+// Configuración básica de Next.js sin optimizaciones de CSS
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
